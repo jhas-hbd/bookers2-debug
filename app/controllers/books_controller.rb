@@ -4,11 +4,10 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @user = @book.user
-
+    @post = Book.new
   end
 
   def index
-    @post = Book.new
     @books = Book.all
     @book = Book.new
   end
