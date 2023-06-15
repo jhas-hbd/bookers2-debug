@@ -21,13 +21,15 @@
             <% if @book.favorited_by?(current_user) %>
               <p>
                 <%= link_to book_favorites_path(@book), method: :delete do %>
-                  ♥<%= @book.favorites.count %>
+                  <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+                  <%= @book.favorites.count %>
                 <% end %>
               </p>
             <% else %>
               <p>
                 <%= link_to book_favorites_path(@book), method: :post do %>
-                  ♥<%= @book.favorites.count %>
+                  <i class="fas fa-heart" aria-hidden="true"></i>
+                  <%= @book.favorites.count %>
                 <% end %>
               </p>
             <% end %>
@@ -55,16 +57,16 @@
           </td>
           <td>
             <% if book_comment.user == current_user %>
-              <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete %>
+              <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, class: "btn btn-danger pull-right" %>
             <% end %>
           </td>
         </tr>
         <% end %>
       </table>
       <div>
-        <%= form_with model: [@book, @book_comment] do |f| %>
-          <%= f.text_area :comment %>
-          <p><%= f.submit "送信" %></p>
+        <%= form_with(model: [@book, @book_comment], local: true) do |f| %>
+          <%= f.text_area :comment, rows:'5', class: "w-100" %>
+          <%= f.submit "送信", class: "btn btn-lg btn-base-1　mt-20 pull-right" %>
         <% end %>
       </div>
     </div>
