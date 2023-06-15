@@ -26,10 +26,13 @@
           <% else %>
             <p>
               <%= link_to book_favorites_path(book), method: :post do %>
-                ♡<%= book.favorites.count %>
+                ♥<%= book.favorites.count %>
               <% end %>
             </p>
           <% end %>
+        </td>
+        <td>
+          <p>コメント数: <%= book.book_comments.count %></p>
         </td>
       </tr>
     <% end %>
