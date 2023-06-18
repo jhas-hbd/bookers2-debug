@@ -1,6 +1,6 @@
 <table class="table">
   <% if @range=="User" %>
-
+    <h3>Users search for "<%= @word %>"</h3>
     <thead>
       <tr>
         <th>Image</th>
@@ -20,7 +20,7 @@
       <% end %>
     </tbody>
   <% else %>
-
+    <h3>Books search for "<%= @word %>"</h3>
     <thead>
       <tr>
         <th></th>
