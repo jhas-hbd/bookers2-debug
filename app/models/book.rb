@@ -6,7 +6,6 @@ class Book < ApplicationRecord
   validates :body,presence:true,length:{maximum:200}
 
   scope :latest, -> {order(created_at: :desc)}
-
   scope :star_count, -> {order(stars: :desc)}
 
   def favorited_by?(user)
