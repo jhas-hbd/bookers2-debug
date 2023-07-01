@@ -19,6 +19,21 @@
         <td id="favorite_buttons_<%= book.id %>">
           <%= render "favorites/favorite-btn", book: book %>
         </td>
+
+        <td id="index-stars"></td>
+        <script>
+          let indexRateElement = document.querySelector('#index-stars');
+          let indexOpt = {
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            scoreName: 'book[stars]',
+            score: "<%= book.stars %>",
+            readOnly: true
+          };
+          window.raty(indexRateElement, indexOpt);
+        </script>
+
         <td>
           <p>コメント数: <span id="comment_count"><%= book.book_comments.count %></span></p>
         </td>
