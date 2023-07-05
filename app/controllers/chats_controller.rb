@@ -13,8 +13,8 @@ class ChatsController < ApplicationController
       Entry.create(user_id: current_user.id, room_id: @room.id)
       Entry.create(user_id: @user.id, room_id: @room.id)
     end
-    @chats = @room.messages
-    @chat = Message.new(room_id: @room.id)
+    @chats = @room.chats
+    @chat = Chat.new(room_id: @room.id)
   end
 
   def create
@@ -25,8 +25,8 @@ class ChatsController < ApplicationController
   end
 
   private
-  def message_params
-    params.require(:message).permit(:message, :room_id)
+  def chat_params
+    params.require(:chat).permit(:message, :room_id)
   end
 
   def reject_non_related
