@@ -1,18 +1,9 @@
-<div class="chat-messages">
+<div class="chat-messages mx-auto" style="width: 400px;">
   <% chats.each do |chat| %>
     <% if chat.user_id == current_user.id %>
-      <div class="message self">
-        <div class="message-body">
-          <%= chat.message %>
-        </div>
-      </div>
+      <p style="text-align: right;"><%= chat.message %></p>
     <% else %>
-      <div class="message other">
-        <div class="message-sender"><%= chat.user.name %></div>
-        <div class="message-body">
-          <%= chat.message %>
-        </div>
-      </div>
+      <p style="text-align: left;"><%= chat.message %></p>
     <% end %>
   <% end %>
 </div>
